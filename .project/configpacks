@@ -1,0 +1,10 @@
+*bash.PreBuild
+*cuda.CUDA
+*defaults.EnvVars
+*defaults.Readme
+*apt.PackageManager
+*bash.PreLanguage
+*python.PipPackageManager
+*bash.PostBuild
+*python.JupyterLabPackage
+*tensorboard.Tensorboard
