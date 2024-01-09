@@ -1,6 +1,8 @@
 # NVIDIA AI Workbench: Introduction
 This is an [NVIDIA AI Workbench](https://developer.nvidia.com/blog/develop-and-deploy-scalable-generative-ai-models-seamlessly-with-nvidia-ai-workbench/) example Project that provides a short introduction of the cuDF library, a Python GPU-accelerated DataFrame library (built on the Apache Arrow columnar memory format) for loading, joining, aggregating, filtering, and otherwise manipulating data. cuDF also provides a pandas-like API that will be familiar to data engineers & data scientists, so they can use it to easily accelerate their workflows without going into the details of CUDA programming. Users in the [AI Workbench Early Access Program](https://developer.nvidia.com/ai-workbench-early-access) can get up and running with this Project in minutes.
 
+Have questions? Please direct any issues, fixes, suggestions, and discussion on this project to the DevZone Members Only Forum thread [here](https://forums.developer.nvidia.com/t/support-workbench-example-project-rapids-cudf/278372/1). 
+
 ## Project Description
 Included in this project are four tutorial notebooks. The first three are relatively easy to run; the fourth (*) may require a laptop user to push the project to heavier hardware to run all of the performance benchmarks. Good news: Workbench makes this easy!  
 
