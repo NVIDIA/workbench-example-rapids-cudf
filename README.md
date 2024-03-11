@@ -20,7 +20,10 @@ Included in this project are four tutorial notebooks. The first three are relati
   
 * ```missing-data.ipynb```: In this section, we will discuss missing (also referred to as NA) values in cudf. cudf supports having missing values in all dtypes. These missing values are represented by <NA>. These values are also referenced as “null values”.
   
+* ```cudf-pandas-demo.ipynb```: This notebook demonstrates the acceleration that `cudf.pandas` gives over vanilla Pandas. The example runs through loading some data with Pandas and getting some performance numbers, then running the same code again with the `cudf.pandas` plugin to show the speedup that is possible with NVIDIA hardware.
+
 * ```performance-comparisons.ipynb*```: This notebook compares the performance of cuDF and pandas. The comparisons performed are on identical data sizes. This notebook primarily showcases the factor of speedups users can have when the similar pandas APIs are run on GPUs using cudf. This notebook is written to measure performance on NVIDIA GPUs with _large_ memory. Performance results may vary by data size, as well as the CPU and GPU used.
+  
 
 ---
 **Important Considerations:**
