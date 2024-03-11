@@ -4,9 +4,13 @@ This is an [NVIDIA AI Workbench](https://developer.nvidia.com/blog/develop-and-d
 Have questions? Please direct any issues, fixes, suggestions, and discussion on this project to the DevZone Members Only Forum thread [here](https://forums.developer.nvidia.com/t/support-workbench-example-project-rapids-cudf/278372/1). 
 
 ## Project Description
-Included in this project are four tutorial notebooks. The first three are relatively easy to run; the fourth (*) may require a laptop user to push the project to heavier hardware to run all of the performance benchmarks. Good news: Workbench makes this easy!  
+Included in this project are nine tutorial notebooks. The first six are relatively easy to run; the last three (*) may require a low GPU RAM user ( < 16GB) to push the project to heavier hardware to run all of the performance benchmarks. Good news: Workbench makes this easy!  
 
-* ```10min.ipynb```: This is a short introduction to cuDF and Dask-cuDF, geared mainly towards new users.
+* [cudf-pandas-demo](./code/cudf-pandas-demo.ipynb): This notebook demonstrates the acceleration that `cudf.pandas` gives over vanilla Pandas. The example runs through loading some data with Pandas and getting some performance numbers, then running the same code again with the `cudf.pandas` plugin to show the speedup that is possible with NVIDIA hardware.
+
+* [rapids_cudf_pandas_accelerator_mode](./code/rapids_cudf_pandas_accelerator_mode.ipynb): This notebooks shows you how to GPU accelerate your existing workflow with zero code change.
+
+* [10min](./code/10min.ipynb): This is a short introduction to cuDF and Dask-cuDF, geared mainly towards new users.
 
    _cuDF_ is a Python GPU DataFrame library (built on the Apache Arrow columnar memory format) for loading, joining, aggregating, filtering, and otherwise manipulating tabular data using a DataFrame style API in the style of pandas.
 
@@ -16,14 +20,17 @@ Included in this project are four tutorial notebooks. The first three are relati
 
    Which libraries do I use? If your workflow is fast enough on a single GPU or your data comfortably fits in memory on a single GPU, you would want to use cuDF. If you want to distribute your workflow across multiple GPUs, have more data than you can fit in memory on a single GPU, or want to analyze data spread across many files at once, you would want to use Dask-cuDF. 
   
-* ```cupy-interop.ipynb```: This notebook provides introductory examples of how you can use cuDF and CuPy together to take advantage of CuPy array functionality (such as advanced linear algebra operations). 
+* [cupy-interop](./code/cupy-interop.ipynb): This notebook provides introductory examples of how you can use cuDF and CuPy together to take advantage of CuPy array functionality (such as advanced linear algebra operations). 
   
-* ```missing-data.ipynb```: In this section, we will discuss missing (also referred to as NA) values in cudf. cudf supports having missing values in all dtypes. These missing values are represented by <NA>. These values are also referenced as “null values”.
-  
-* ```cudf-pandas-demo.ipynb```: This notebook demonstrates the acceleration that `cudf.pandas` gives over vanilla Pandas. The example runs through loading some data with Pandas and getting some performance numbers, then running the same code again with the `cudf.pandas` plugin to show the speedup that is possible with NVIDIA hardware.
+* [missing-data](./code/missing-data.ipynb): In this section, we will discuss missing (also referred to as NA) values in cudf. cudf supports having missing values in all dtypes. These missing values are represented by <NA>. These values are also referenced as “null values”.
 
-* ```performance-comparisons.ipynb*```: This notebook compares the performance of cuDF and pandas. The comparisons performed are on identical data sizes. This notebook primarily showcases the factor of speedups users can have when the similar pandas APIs are run on GPUs using cudf. This notebook is written to measure performance on NVIDIA GPUs with _large_ memory. Performance results may vary by data size, as well as the CPU and GPU used.
-  
+* [Introduction_to_Strings](./code/Introduction_to_Strings.ipynb): This notebook shows how to manipulate strings with cuDF DataFrames.
+
+* [Introduction_to_Exploratory_Data_Analysis_using_cuDF](./code/Introduction_to_Exploratory_Data_Analysis_using_cuDF.ipynb): This notebook shows how to perform basic EDA with cuDF DataFrames
+
+* [Introduction_to_Time_Series_Data_Analysis_using_cuDF](./code/Introduction_to_Time_Series_Data_Analysis_using_cuDF.ipynb): This notebook shows how to do EDA on time-series DataFrame with cuDF
+
+* [performance-comparisons](./code/performance-comparisons.ipynb) (*): This notebook compares the performance of cuDF and pandas. The comparisons performed are on identical data sizes. This notebook primarily showcases the factor of speedups users can have when the similar pandas APIs are run on GPUs using cudf. This notebook is written to measure performance on NVIDIA GPUs with _large_ memory. Performance results may vary by data size, as well as the CPU and GPU used.
 
 ---
 **Important Considerations:**
