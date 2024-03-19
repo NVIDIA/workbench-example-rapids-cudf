@@ -4,11 +4,9 @@ This is an [NVIDIA AI Workbench](https://developer.nvidia.com/blog/develop-and-d
 Have questions? Please direct any issues, fixes, suggestions, and discussion on this project to the DevZone Members Only Forum thread [here](https://forums.developer.nvidia.com/t/support-workbench-example-project-rapids-cudf/278372/1). 
 
 ## Project Description
-Included in this project are nine tutorial notebooks. The first six are relatively easy to run; the last three (*) may require a low GPU RAM user ( < 16GB) to push the project to heavier hardware to run all of the performance benchmarks. Good news: Workbench makes this easy!  
+Included in this project are eight tutorial notebooks. The first five are relatively easy to run; the last three (*) may require a low GPU RAM user ( < 16GB) to push the project to heavier hardware to run all of the performance benchmarks. Good news: Workbench makes this easy!  
 
 * [cudf-pandas-demo](./code/cudf-pandas-demo.ipynb): This notebook demonstrates the acceleration that `cudf.pandas` gives over vanilla Pandas. The example runs through loading some data with Pandas and getting some performance numbers, then running the same code again with the `cudf.pandas` plugin to show the speedup that is possible with NVIDIA hardware.
-
-* [rapids_cudf_pandas_accelerator_mode](./code/rapids_cudf_pandas_accelerator_mode.ipynb): This notebooks shows you how to GPU accelerate your existing workflow with zero code change.
 
 * [10min](./code/10min.ipynb): This is a short introduction to cuDF and Dask-cuDF, geared mainly towards new users.
 
