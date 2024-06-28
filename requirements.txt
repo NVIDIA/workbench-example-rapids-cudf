@@ -1,2 +1,2 @@
-jupyterlab
+jupyterlab>3.0
 plotly

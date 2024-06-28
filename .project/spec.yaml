@@ -1,4 +1,5 @@
 specVersion: v2
+specMinorVersion: 1
 meta:
   name: rapids-cudf
   image: project-rapids-cudf
@@ -21,23 +22,41 @@ layout:
   storage: gitignore
 environment:
   base:
-    registry: docker.io
-    image: rapidsai/notebooks:24.02-cuda12.0-py3.10
-    build_timestamp: "20230321105648"
-    name: RAPIDS Notebook
-    supported_architectures:
-    - amd64
-    cuda_version: 12.0.0
-    description: A Notebook Container with CUDA 12.0 and Python 3.10
-    entrypoint_script: ""
+    registry: nvcr.io
+    image: nvidia/rapidsai/notebooks:24.06-cuda12.0-py3.11
+    build_timestamp: ""
+    name: RAPIDS with CUDA 12.0.1
+    supported_architectures: []
+    cuda_version: 12.0.1
+    description: RAPIDS with CUDA 12.0.1
+    entrypoint_script: /home/rapids/entrypoint.sh
     labels:
-    - cuda12.0
-    - python3.10
-    apps: []
+    - cuda12.0.1
+    apps:
+    - name: jupyterlab
+      type: jupyterlab
+      class: webapp
+      start_command: jupyter lab --allow-root --port 8888 --ip 0.0.0.0 --no-browser
+        --NotebookApp.base_url=\$PROXY_PREFIX --NotebookApp.default_url=/lab --NotebookApp.allow_origin='*'
+      health_check_command: '[ \$(echo url=\$(jupyter lab list | head -n 2 | tail
+        -n 1 | cut -f1 -d'' '' | grep -v ''Currently'' | sed "s@/?@/lab?@g") | curl
+        -o /dev/null -s -w ''%{http_code}'' --config -) == ''200'' ]'
+      stop_command: jupyter lab stop 8888
+      user_msg: ""
+      logfile_path: ""
+      timeout_seconds: 0
+      icon_url: ""
+      webapp_options:
+        autolaunch: true
+        port: "8888"
+        proxy:
+          trim_prefix: false
+        url_command: jupyter lab list | head -n 2 | tail -n 1 | cut -f1 -d' ' | grep
+          -v 'Currently'
     programming_languages:
     - python3
     icon_url: ""
-    image_version: ""
+    image_version: 24.06.01
     os: linux
     os_distro: ubuntu
     os_distro_release: "22.04"
@@ -47,32 +66,32 @@ environment:
       gid: ""
       username: ""
     package_managers:
-    - name: conda
-      binary_path: /opt/conda/bin/conda
-      installed_packages:
-      - jupyterlab=3.6.7
-      - tensorboard
-      - nodejs
-      - notebook
-      - python=3.10.13
     - name: apt
       binary_path: /usr/bin/apt
       installed_packages:
-      - build-essential
-      - ca-certificates
-      - curl
-      - locales
-      - git
-      - git-lfs
-      - openssl=1.1.1f-1ubuntu2.17
-      - libssl1.1=1.1.1f-1ubuntu2.17
-      - vim
+      - ""
+    - name: conda3
+      binary_path: /opt/conda/bin/conda
+      installed_packages:
+      - rapids
+      - cudf
+      - cuml
+      - cugraph
+      - rmm
+      - pylibraft
+      - cuspatial
+      - cuxfilter
+      - cucim
+      - xgboost
+      - dask-sql
+      - jupyterlab
     - name: pip
       binary_path: /opt/conda/bin/pip
-      installed_packages: []
+      installed_packages:
+      - jupyterlab-nvdashboard
     package_manager_environment:
-      name: ""
-      target: ""
+      name: conda
+      target: /opt/conda
 execution:
   apps:
   - name: jupyterlab
@@ -85,6 +104,8 @@ execution:
       | curl -o /dev/null -s -w ''''%{http_code}'''' --config -) == ''''200'''' ]'
     stop_command: jupyter lab stop 8888
     user_msg: ""
+    logfile_path: ""
+    timeout_seconds: 0
     icon_url: ""
     webapp_options:
       autolaunch: true
