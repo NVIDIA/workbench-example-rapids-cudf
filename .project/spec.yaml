@@ -23,15 +23,15 @@ layout:
 environment:
     base:
         registry: nvcr.io
-        image: nvidia/rapidsai/notebooks:24.06-cuda12.0-py3.11
+        image: nvidia/rapidsai/notebooks:25.08-cuda12.9-py3.13
         build_timestamp: ""
-        name: RAPIDS with CUDA 12.0.1
+        name: RAPIDS with CUDA 12.9.1
         supported_architectures: []
-        cuda_version: 12.0.1
-        description: RAPIDS with CUDA 12.0.1
+        cuda_version: 12.9.1
+        description: RAPIDS with CUDA 12.9.1
         entrypoint_script: /home/rapids/entrypoint.sh
         labels:
-            - cuda12.0.1
+            - cuda12.9.1
         apps:
             - name: jupyterlab
               type: jupyterlab
@@ -52,7 +52,7 @@ environment:
         programming_languages:
             - python3
         icon_url: ""
-        image_version: 24.06.01
+        image_version: 25.08.01
         os: linux
         os_distro: ubuntu
         os_distro_release: "22.04"
